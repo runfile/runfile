@@ -1,6 +1,6 @@
 {
   "name": "runfile",
-  "version": "0.0.1",
+  "version": "0.0.11",
   "description": "```bash\r # task-driven build system\r run clean\r ```",
   "main": "run.js",
   "scripts": {

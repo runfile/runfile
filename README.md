@@ -33,6 +33,8 @@ task.git = (argv) => {
   exec(`git commit -m "${message}"`)
   exec('git push origin master')
 }
+
+task.default = ['clean', 'git']
 ```
 
 then in your favorite terminal:
