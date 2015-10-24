@@ -34,7 +34,7 @@ task.deploy = (argv) => {
   exec('git push origin master')
 }
 
-task.default = ['clean', 'git']
+task.default = ['clean', 'deploy']
 ```
 
 then in your favorite terminal:
