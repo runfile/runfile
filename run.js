@@ -5,5 +5,5 @@ module.exports = (argv) => {
   var taskFile = process.cwd() + '/Runfile'
   var tasks = require(taskFile)
 
-  tasks[taskName]()
+  tasks[taskName](argv)
 }
