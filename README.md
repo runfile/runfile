@@ -6,6 +6,14 @@
 
 🚧 A minimal alternative for GNU Makefile.
 
+## Install
+
+If you have `node >= 4.0.0` installed: 
+
+```bash
+npm install -g runfile
+```
+
 ## Example
 
 An example `Runfile`
