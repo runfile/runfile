@@ -2,8 +2,6 @@
 
 🚧 Task-driven distributing system
 
-```
-
 ## Example
 
 An example `Runfile`
