@@ -1,0 +1,21 @@
+{
+  "name": "runfile",
+  "version": "0.0.0",
+  "description": "```bash\r # task-driven build system\r run clean\r ```",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "run": "./bin/run"
+  },
+  "author": "",
+  "license": "ISC",
+  "engine": {
+    "node": ">= 4.0.0"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "shelljs": "^0.5.3"
+  }
+}
