@@ -6,6 +6,8 @@
 
 🚧 A minimal alternative for GNU Makefile.
 
+![preview](http://ww4.sinaimg.cn/large/a15b4afegw1excqco5qvhj20ht05ptan.jpg)
+
 ## Install
 
 If you have `node >= 4.0.0` installed: 
