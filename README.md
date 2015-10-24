@@ -1,6 +1,6 @@
 # runfile
 
-🚧 Task-driven distributing system
+🚧 A minimal alternative for GNU Makefile.
 
 ## Example
 
@@ -16,7 +16,7 @@ task.clean = () => {
 
 // or run external tools
 task.git = (argv) => {
-  var message = argv.m
+  var message = argv.m || 'update'
   exec('git add -A')
   exec(`git commit -m ${message}`)
   exec('git push origin master')
