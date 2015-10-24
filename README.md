@@ -27,8 +27,8 @@ task.clean = () => {
 }
 
 // or run external tools
-task.git = (argv) => {
-  var message = argv.m || 'update'
+task.deploy = (argv) => {
+  var message = argv._[1] || 'update'
   exec('git add -A')
   exec(`git commit -m "${message}"`)
   exec('git push origin master')
@@ -41,7 +41,7 @@ then in your favorite terminal:
 
 ```bash
 run clean
-run git
+run deploy
 ```
 
 ## License

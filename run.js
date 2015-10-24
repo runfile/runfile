@@ -1,8 +1,18 @@
-require('shelljs/global')
+var path = require('path')
+var pathExists = require('path-exists')
+var runTask = require('./lib/run-task')
 
 module.exports = (argv) => {
   var taskName = argv._[0]
-  var taskFile = process.cwd() + '/Runfile'
+  var taskFile = path.join(process.cwd(), argv.runfile || 'Runfile')
+
+  var exist = pathExists.sync(taskFile)
+  if (!exist) {
+    log('Runfile not found'.red, 'in', taskFile.magenta)
+    return
+  }
+
+  log('Using Runfile in:', taskFile.magenta)
   var tasks = require(taskFile)
 
   if (!taskName) {
@@ -13,10 +23,11 @@ module.exports = (argv) => {
   var task = tasks[taskName]
   if (Array.isArray(task)) {
     for (var i = 0; i < task.length; i++) {
-      tasks[task[i]](argv)
+      var subTask = tasks[task[i]]
+      runTask(task[i], subTask, argv)
     }
     return
   }
   
-  task(argv)
+  runTask(taskName, task, argv)
 }
