@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/runfile.svg?style=flat-square)](https://www.npmjs.com/package/runfile)
 [![NPM download](https://img.shields.io/npm/dm/runfile.svg?style=flat-square)](https://www.npmjs.com/package/runfile)
-[![David Status](https://img.shields.io/david/egoist/runfile.svg?style=flat-square)](https://david-dm.org/runfile/runfile)
+[![David Status](https://img.shields.io/david/runfile/runfile.svg?style=flat-square)](https://david-dm.org/runfile/runfile)
 
 🚧 A minimal alternative for GNU Makefile. You can use [Shell commands](https://github.com/shelljs/shelljs#command-reference), External tools in your OS directly and synchronously with Runfile.
 
