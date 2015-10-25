@@ -3,6 +3,7 @@
 require('shelljs/global')
 require('colorful').toxic()
 global.log = require('fancy-log')
+global.async = require('async')
 
 var minimist = require('minimist')
 var run = require('..')

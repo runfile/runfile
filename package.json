@@ -15,6 +15,7 @@
     "node": ">= 4.0.0"
   },
   "dependencies": {
+    "async": "^1.4.2",
     "colorful": "^2.1.0",
     "fancy-log": "^1.1.0",
     "minimist": "^1.2.0",

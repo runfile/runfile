@@ -4,7 +4,7 @@
 [![NPM download](https://img.shields.io/npm/dm/runfile.svg?style=flat-square)](https://www.npmjs.com/package/runfile)
 [![David Status](https://img.shields.io/david/egoist/runfile.svg?style=flat-square)](https://david-dm.org/egoist/runfile)
 
-🚧 A minimal alternative for GNU Makefile.
+🚧 A minimal alternative for GNU Makefile. You can use [Shell commands](https://github.com/shelljs/shelljs#command-reference), External tools in your OS, [Async functions](https://github.com/caolan/async) directly and synchronously with Runfile.
 
 ![preview](http://ww4.sinaimg.cn/large/a15b4afegw1excqco5qvhj20ht05ptan.jpg)
 
