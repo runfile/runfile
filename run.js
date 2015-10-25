@@ -1,8 +1,20 @@
 var path = require('path')
 var pathExists = require('path-exists')
+var prettyHrtime = require('pretty-hrtime')
 var runTask = require('./lib/run-task')
+var registerEmit = require('./lib/register-emit')
+var Orchestrator = require('orchestrator')
+global.task = new Orchestrator()
+task.on('task_start', e => {
+  log('Staring', `'${e.task}'`.cyan, '...')
+})
 
-module.exports = (argv) => {
+task.on('task_stop', e => {
+  log('Finished', `'${e.task}'`.cyan, `in ${prettyHrtime(e.hrDuration)}`)
+})
+registerEmit()
+
+module.exports = () => {
   var taskName = argv._[0]
   var taskFile = path.join(process.cwd(), argv.runfile || 'Runfile')
 
@@ -13,21 +25,11 @@ module.exports = (argv) => {
   }
 
   log('Using Runfile in:', taskFile.magenta)
-  var tasks = require(taskFile)
+  require(taskFile)
 
   if (!taskName) {
-    // run default task
     taskName = 'default'
   }
 
-  var task = tasks[taskName]
-  if (Array.isArray(task)) {
-    for (var i = 0; i < task.length; i++) {
-      var subTask = tasks[task[i]]
-      runTask(task[i], subTask, argv)
-    }
-    return
-  }
-  
-  runTask(taskName, task, argv)
+  runTask(taskName)
 }

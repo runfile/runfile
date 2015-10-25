@@ -4,7 +4,7 @@
 [![NPM download](https://img.shields.io/npm/dm/runfile.svg?style=flat-square)](https://www.npmjs.com/package/runfile)
 [![David Status](https://img.shields.io/david/egoist/runfile.svg?style=flat-square)](https://david-dm.org/egoist/runfile)
 
-🚧 A minimal alternative for GNU Makefile. You can use [Shell commands](https://github.com/shelljs/shelljs#command-reference), External tools in your OS, [Async functions](https://github.com/caolan/async) directly and synchronously with Runfile.
+🚧 A minimal alternative for GNU Makefile. You can use [Shell commands](https://github.com/shelljs/shelljs#command-reference), External tools in your OS directly and synchronously with Runfile.
 
 ![preview](http://ww4.sinaimg.cn/large/a15b4afegw1excqco5qvhj20ht05ptan.jpg)
 
@@ -21,22 +21,20 @@ npm install -g runfile
 An example `Runfile`
 
 ```javascript
-var task = module.exports = {}
-
-task.clean = () => {
+task.add('clean', () => {
   rm('-rf', 'testFolder')
   rm('-rf', 'testSource')
-}
+})
 
 // or run external tools
-task.deploy = (argv) => {
+task.add('deploy', () => {
   var message = argv._[1] || 'update'
   exec('git add -A')
   exec(`git commit -m "${message}"`)
   exec('git push origin master')
-}
+})
 
-task.default = ['clean', 'deploy']
+task.add('default', ['clean', 'deploy'])
 ```
 
 then in your favorite terminal:
@@ -44,6 +42,33 @@ then in your favorite terminal:
 ```bash
 run clean
 run deploy
+```
+
+**Run tasks synchronously**
+
+```javascript
+task.add('timeout', (callback) => {
+  setTimeout(() => {
+    console.log('timeout')
+    callback()
+  }, 3000)
+})
+
+task.add('log', ['timeout'], () => {
+  console.log(argv)
+})
+
+task.add('default', ['log'])
+
+// then `run`
+```
+
+**Trigger a task by hand**
+
+```javascript
+task.add('emit', () => {
+  emit('deploy')
+})
 ```
 
 ## License
