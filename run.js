@@ -25,7 +25,7 @@ module.exports = () => {
     return
   }
 
-  log('Using Runfile in:', tildify(taskFile).magenta)
+  log('Using Runfile at:', tildify(taskFile).magenta)
   require(taskFile)
 
   if (!taskName) {
