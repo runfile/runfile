@@ -6,7 +6,7 @@
 
 🚧 A minimal alternative for GNU Makefile. You can use [Shell commands](https://github.com/shelljs/shelljs#command-reference), External tools in your OS directly and synchronously with Runfile.
 
-![preview](http://ww4.sinaimg.cn/large/a15b4afegw1excqco5qvhj20ht05ptan.jpg)
+![preview](http://ww4.sinaimg.cn/large/a15b4afegw1exead3u6d4j20kx0fn415.jpg)
 
 ## Install
 
