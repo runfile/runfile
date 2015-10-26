@@ -1,6 +1,7 @@
 var path = require('path')
 var pathExists = require('path-exists')
 var prettyHrtime = require('pretty-hrtime')
+var tildify = require('tildify')
 var runTask = require('./lib/run-task')
 var registerEmit = require('./lib/register-emit')
 var Orchestrator = require('orchestrator')
@@ -20,11 +21,11 @@ module.exports = () => {
 
   var exist = pathExists.sync(taskFile)
   if (!exist) {
-    log('Runfile not found'.red, 'in', taskFile.magenta)
+    log('Runfile not found'.red, 'at', tildify(taskFile).magenta)
     return
   }
 
-  log('Using Runfile in:', taskFile.magenta)
+  log('Using Runfile in:', tildify(taskFile).magenta)
   require(taskFile)
 
   if (!taskName) {
