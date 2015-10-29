@@ -7,7 +7,7 @@ var Orchestrator = require('orchestrator')
 global.task = new Orchestrator()
 var registerGlobal = require('./lib/register-global')
 task.on('task_start', e => {
-  log('Staring', `'${e.task}'`.cyan, '...')
+  log('Starting', `'${e.task}'`.cyan, '...')
 })
 
 task.on('task_stop', e => {
