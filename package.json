@@ -1,6 +1,6 @@
 {
   "name": "runfile",
-  "version": "0.0.24",
+  "version": "0.0.3",
   "description": "A minimal alternative for GNU Makefile.",
   "main": "run.js",
   "scripts": {
