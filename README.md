@@ -10,7 +10,7 @@
 
 ## Install
 
-If you have `node >= 4.0.0` installed: 
+If you have `node >= 4.0.0` installed:
 
 ```bash
 npm install -g runfile
@@ -21,20 +21,25 @@ npm install -g runfile
 An example `Runfile`
 
 ```javascript
-task.add('clean', () => {
+register('clean', () => {
   rm('-rf', 'testFolder')
   rm('-rf', 'testSource')
 })
 
 // or run external tools
-task.add('deploy', () => {
+register('deploy', () => {
   var message = argv._[1] || 'update'
   exec('git add -A')
   exec(`git commit -m "${message}"`)
   exec('git push origin master')
 })
 
-task.add('default', ['clean', 'deploy'])
+register('default', ['clean', 'deploy'])
+
+// alia `run path` to external command `echo $PATH`
+// to print your $PATH info in console
+// a short-hand for one-line task
+alias('path', 'echo $PATH')
 ```
 
 then in your favorite terminal:
@@ -47,18 +52,18 @@ run deploy
 **Run tasks synchronously**
 
 ```javascript
-task.add('timeout', (callback) => {
+register('timeout', (callback) => {
   setTimeout(() => {
     console.log('timeout')
     callback()
   }, 3000)
 })
 
-task.add('log', ['timeout'], () => {
+register('log', ['timeout'], () => {
   console.log(argv)
 })
 
-task.add('default', ['log'])
+register('default', ['log'])
 
 // then `run`
 ```
@@ -66,7 +71,7 @@ task.add('default', ['log'])
 **Trigger a task by hand**
 
 ```javascript
-task.add('emit', () => {
+register('emit', () => {
   emit('deploy')
 })
 ```

@@ -3,9 +3,9 @@ var pathExists = require('path-exists')
 var prettyHrtime = require('pretty-hrtime')
 var tildify = require('tildify')
 var runTask = require('./lib/run-task')
-var registerEmit = require('./lib/register-emit')
 var Orchestrator = require('orchestrator')
 global.task = new Orchestrator()
+var registerGlobal = require('./lib/register-global')
 task.on('task_start', e => {
   log('Staring', `'${e.task}'`.cyan, '...')
 })
@@ -13,7 +13,7 @@ task.on('task_start', e => {
 task.on('task_stop', e => {
   log('Finished', `'${e.task}'`.cyan, `in ${prettyHrtime(e.hrDuration)}`)
 })
-registerEmit()
+registerGlobal()
 
 module.exports = () => {
   var taskName = argv._[0]
