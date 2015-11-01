@@ -88,7 +88,7 @@ register('emit', () => {
 // just a short-hand for `./node_modules/.bin/webpack`
 register('webpack', () => {
   const webpack = npm('webpack --hot --inline')
-  if (process.env.platform === 'win32') {
+  if (process.platform === 'win32') {
     exec(`set NODE_ENV=development && ${webpack}`)
   } else {
     exec('NODE_ENV=development ${webpack}')
