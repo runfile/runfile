@@ -40,6 +40,12 @@ register('default', ['clean', 'deploy'])
 // to print your $PATH info in console
 // a short-hand for one-line task
 alias('path', 'echo $PATH')
+// or a sequence of commands
+alias('async', [
+  'echo Hi',
+  'sleep 1',
+  'echo After 1s'
+])
 ```
 
 then in your favorite terminal:
@@ -73,6 +79,14 @@ register('default', ['log'])
 ```javascript
 register('emit', () => {
   emit('deploy')
+})
+```
+
+**Running Node executable inside `./node_modules/.bin`**
+
+```javascript
+register('webpack', () => {
+  npm('webpack --hot --inline')
 })
 ```
 

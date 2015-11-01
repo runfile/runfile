@@ -9,7 +9,6 @@ var registerGlobal = require('./lib/register-global')
 task.on('task_start', e => {
   log('Starting', `'${e.task}'`.cyan, '...')
 })
-
 task.on('task_stop', e => {
   log('Finished', `'${e.task}'`.cyan, `in ${prettyHrtime(e.hrDuration)}`)
 })

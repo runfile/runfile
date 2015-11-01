@@ -8,4 +8,9 @@ var minimist = require('minimist')
 var run = require('..')
 global.argv = minimist(process.argv.slice(2), { '--': true })
 
+if (argv.v || argv.version) {
+  console.log('Runfile ~', require('../package').version.cyan)
+  return
+}
+
 run()
