@@ -4,6 +4,7 @@ var prettyHrtime = require('pretty-hrtime')
 var tildify = require('tildify')
 var runTask = require('./lib/run-task')
 var Orchestrator = require('orchestrator')
+var userHome = require('user-home')
 global.task = new Orchestrator()
 var registerGlobal = require('./lib/register-global')
 task.on('task_start', e => {
@@ -17,15 +18,20 @@ registerGlobal()
 module.exports = () => {
   // parsing argv and get task name and Runfilepath
   var taskName = argv._[0]
-  var taskFile = path.join(process.cwd(), argv.runfile || 'Runfile')
+  var useGlobal = argv.g || argv.global
+  var taskFile = useGlobal ? userHome + '/Runfile' : path.join(process.cwd(), argv.runfile || 'Runfile')
 
   // finding and requireing Runfile
   var exist = pathExists.sync(taskFile)
   if (!exist) {
-    log('Runfile not found'.red, 'at', tildify(taskFile).magenta)
+    if (useGlobal) {
+      log('Global Runfle not found'.red, 'at', tildify(taskFile).magenta)
+    } else {
+      log('Runfile not found'.red, 'at', tildify(taskFile).magenta)
+    }
     return
   }
-  log('Using Runfile at:', tildify(taskFile).magenta)
+  log(`Using ${useGlobal ? 'Global ' : ''}Runfile at:`, tildify(taskFile).magenta)
   require(taskFile)
 
   // give a default name if no task name specified

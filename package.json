@@ -1,6 +1,6 @@
 {
   "name": "runfile",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A minimal alternative for GNU Makefile.",
   "main": "run.js",
   "scripts": {
@@ -9,6 +9,7 @@
   "bin": {
     "run": "./bin/run"
   },
+  "preferGlobal": true,
   "author": "EGOIST <aprilorange.net@icloud.com>",
   "license": "MIT",
   "engine": {
@@ -23,6 +24,7 @@
     "path-exists": "^2.0.0",
     "pretty-hrtime": "^1.0.1",
     "shelljs": "^0.5.3",
-    "tildify": "^1.1.2"
+    "tildify": "^1.1.2",
+    "user-home": "^2.0.0"
   }
 }
