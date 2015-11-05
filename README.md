@@ -2,9 +2,10 @@
 
 [![NPM version](https://img.shields.io/npm/v/runfile.svg?style=flat-square)](https://www.npmjs.com/package/runfile)
 [![NPM download](https://img.shields.io/npm/dm/runfile.svg?style=flat-square)](https://www.npmjs.com/package/runfile)
-[![David Status](https://img.shields.io/david/runfile/runfile.svg?style=flat-square)](https://david-dm.org/runfile/runfile)
 
-🚧 A minimal alternative for GNU Makefile. You can use [Shell commands](https://github.com/shelljs/shelljs#command-reference), External tools in your OS directly and synchronously with Runfile. Additionally it's brought with built-in ES2015 support through Babel.
+🚧 A minimal alternative for GNU Makefile. You can use [Shell commands](https://github.com/shelljs/shelljs#command-reference), External tools in your OS directly and synchronously with Runfile.
+
+Additionally it's brought with built-in ES2015 support through Babel.
 
 ![preview](http://ww4.sinaimg.cn/large/a15b4afegw1exec8v5mlyj20gc0a9gnt.jpg)
 
