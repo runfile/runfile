@@ -1,6 +1,6 @@
 {
   "name": "runfile",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A minimal alternative for GNU Makefile.",
   "main": "run.js",
   "scripts": {
@@ -15,8 +15,7 @@
     "node": ">= 4.0.0"
   },
   "dependencies": {
-    "babel-core": "^6.1.2",
-    "babel-preset-es2015": "^6.1.2",
+    "babel-core": "^5.8.23",
     "colorful": "^2.1.0",
     "fancy-log": "^1.1.0",
     "minimist": "^1.2.0",
