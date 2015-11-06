@@ -99,7 +99,7 @@ register('webpack', () => {
 
 **Run task from global Runfile**
 
-Something you repeat some common operations so you will always a `Runfile` stored globally to access from anywhere.
+Sometimes you repeat some common operations so you will always need a `Runfile` stored globally to access from anywhere.
 
 ```javascript
 // find task `git` in `~\Runfile`
