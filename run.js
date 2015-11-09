@@ -18,9 +18,9 @@ registerGlobal()
 module.exports = () => {
   // parsing argv and get task name and Runfilepath
   var taskName = argv._[0]
-  
+
   // detect global: -g/--global/:taskname
-  var aliasGlobal = (taskName.substring(0, 1) === ':')
+  var aliasGlobal = taskName && (taskName.substring(0, 1) === ':')
   if (aliasGlobal) {
     taskName = taskName.substring(1)
   }
