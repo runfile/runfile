@@ -18,7 +18,13 @@ registerGlobal()
 module.exports = () => {
   // parsing argv and get task name and Runfilepath
   var taskName = argv._[0]
-  var useGlobal = argv.g || argv.global || argv._[0].substring(0, 1) === ':'
+  
+  // detect global: -g/--global/:taskname
+  var aliasGlobal = (taskName.substring(0, 1) === ':')
+  if (aliasGlobal) {
+    taskName = taskName.substring(1)
+  }
+  var useGlobal = argv.g || argv.global || aliasGlobal
   var taskFile = useGlobal ? userHome + '/.runfile/Runfile' : path.join(process.cwd(), argv.runfile || 'Runfile')
 
   // finding and requireing Runfile
