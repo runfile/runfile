@@ -75,6 +75,30 @@ register('default', ['log'])
 // then `run`
 ```
 
+**Run non-block synchronous task**
+
+Besides `exec()` and built-in shell commands, [`async/await`](https://github.com/tc39/ecmascript-asyncawait) also allows you to write async code in sync way (looks like).
+
+```javascript
+import fs from 'fs'
+
+function readFile (name) {
+  return new Promise(function (resolve, reject) {
+    fs.readFile(name, 'utf-8', function (err, data) {
+      if (err) {
+        reject(err)
+      }
+      resolve(data)
+    })
+  })
+}
+
+register('async', async () => {
+  let data = await readFile('Runfile')
+  console.log(data)
+})
+```
+
 **Trigger a task by hand**
 
 ```javascript
@@ -102,8 +126,10 @@ register('webpack', () => {
 Sometimes you repeat some common operations so you will always need a `Runfile` stored globally to access from anywhere.
 
 ```javascript
-// find task `git` in `~\Runfile`
+// find task `git` in `~\.runfile\Runfile`
 run git -g
+// alias
+run :git
 ```
 
 ## License
