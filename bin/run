@@ -4,13 +4,16 @@ require('babel-core/register')
 require('shelljs/global')
 require('colorful').toxic()
 global.log = require('fancy-log')
+var updateNotifier = require('update-notifier')
+var pkg = require('../package.json')
+updateNotifier({pkg}).notify()
 
 var minimist = require('minimist')
 var run = require('..')
 global.argv = minimist(process.argv.slice(2), { '--': true })
 
 if (argv.v || argv.version) {
-  console.log('Runfile ~', require('../package').version.cyan)
+  console.log('Runfile ~', pkg.version.cyan)
   return
 }
 
