@@ -11,8 +11,6 @@ Additionally it's brought with built-in ES2015 support through Babel.
 
 ## Install
 
-If you have `node >= 4.0.0` installed:
-
 ```bash
 npm install -g runfile
 ```
