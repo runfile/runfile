@@ -6,7 +6,7 @@ require('colorful').toxic()
 global.log = require('fancy-log')
 var updateNotifier = require('update-notifier')
 var pkg = require('../package.json')
-updateNotifier({pkg}).notify()
+updateNotifier({pkg: pkg}).notify()
 
 var minimist = require('minimist')
 var run = require('../lib/run').run
