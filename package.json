@@ -14,7 +14,7 @@
   "preferGlobal": true,
   "author": "EGOIST <aprilorange.net@icloud.com>",
   "dependencies": {
-    "babel-core": "^5.8.23",
+    "babel-core": "^6.2.1",
     "babel-runtime": "^5.8.29",
     "colorful": "^2.1.0",
     "fancy-log": "^1.1.0",
