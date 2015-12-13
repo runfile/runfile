@@ -12,7 +12,7 @@ Additionally it's brought with built-in ES2015 support through Babel.
 ## Install
 
 ```bash
-npm install -g runfile
+npm install -g runfile --production
 ```
 
 ## Example
@@ -20,20 +20,20 @@ npm install -g runfile
 An example `Runfile`
 
 ```javascript
-register('clean', () => {
+task('clean', () => {
   rm('-rf', 'testFolder')
   rm('-rf', 'testSource')
 })
 
 // or run external tools
-register('deploy', () => {
+task('deploy', () => {
   var message = argv._[1] || 'update'
   exec('git add -A')
   exec(`git commit -m "${message}"`)
   exec('git push origin master')
 })
 
-register('default', ['clean', 'deploy'])
+task('default', ['clean', 'deploy'])
 
 // alia `run path` to external command `echo $PATH`
 // to print your $PATH info in console
@@ -57,18 +57,18 @@ run deploy
 **Run tasks synchronously**
 
 ```javascript
-register('timeout', (callback) => {
+task('timeout', (callback) => {
   setTimeout(() => {
     console.log('timeout')
     callback()
   }, 3000)
 })
 
-register('log', ['timeout'], () => {
+task('log', ['timeout'], () => {
   console.log(argv)
 })
 
-register('default', ['log'])
+task('default', ['log'])
 
 // then `run`
 ```
@@ -91,7 +91,7 @@ function readFile (name) {
   })
 }
 
-register('async', async () => {
+task('async', async () => {
   let data = await readFile('Runfile')
   console.log(data)
 })
@@ -100,7 +100,7 @@ register('async', async () => {
 **Trigger a task by hand**
 
 ```javascript
-register('emit', () => {
+task('emit', () => {
   emit('deploy')
 })
 ```
@@ -109,7 +109,7 @@ register('emit', () => {
 
 ```javascript
 // just a short-hand for `./node_modules/.bin/webpack`
-register('webpack', () => {
+task('webpack', () => {
   const webpack = npm('webpack --hot --inline')
   if (process.platform === 'win32') {
     exec(`set NODE_ENV=development && ${webpack}`)

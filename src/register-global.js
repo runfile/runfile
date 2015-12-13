@@ -1,20 +1,19 @@
 import path from 'path'
-import pathExists from 'path-exists'
 
 global.emit = (name) => {
-  task.start(name)
+  orchestrator.start(name)
 }
 
-global.register = (name, tasks, fn) => {
+global.task = (name, tasks, fn) => {
   if (Array.isArray(tasks)) {
-    task.add(name, tasks, fn)
+    orchestrator.add(name, tasks, fn)
   } else if (typeof tasks === 'function') {
-    task.add(name, tasks)
+    orchestrator.add(name, tasks)
   }
 }
 
 global.alias = (name, aliasToCommand) => {
-  task.add(name, () => {
+  orchestrator.add(name, () => {
     if (Array.isArray(aliasToCommand)) {
       for (var i = 0; i < aliasToCommand.length; i++) {
         exec(aliasToCommand[i])

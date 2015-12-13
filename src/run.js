@@ -7,15 +7,15 @@ import Orchestrator from 'orchestrator'
 import userHome from'user-home'
 import './register-global'
 
-global.task = new Orchestrator()
-task.on('task_start', e => {
+global.orchestrator = new Orchestrator()
+orchestrator.on('task_start', e => {
   log('Starting', `'${e.task}'`.cyan, '...')
 })
-task.on('task_stop', e => {
+orchestrator.on('task_stop', e => {
   log('Finished', `'${e.task}'`.cyan, `in ${prettyHrtime(e.hrDuration)}`)
 })
-
-export function run () {
+ 
+export default function run () {
   // parsing argv and get task name and Runfilepath
   let taskName = argv._[0]
 
