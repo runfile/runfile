@@ -12,7 +12,7 @@ Additionally it's brought with built-in ES2015 support through Babel.
 ## Install
 
 ```bash
-npm install -g runfile --production
+npm install -g runfile
 ```
 
 ## Example
