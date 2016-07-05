@@ -13,7 +13,7 @@
   "author": "EGOIST <0x142857@gmail.com>",
   "dependencies": {
     "babel-core": "^5.8.23",
-    "babel-runtime": "^5.8.29",
+    "babel-runtime": "^6.2.0",
     "colorful": "^2.1.0",
     "fancy-log": "^1.1.0",
     "minimist": "^1.2.0",
